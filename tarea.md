@@ -1,0 +1,332 @@
+# Código del proyecto: Supermercado La Economía
+
+## `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supermercado La Economía</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Encabezado principal -->
+  <header>
+    <h1>Supermercado La Economía</h1>
+
+    <!-- Menú de navegación -->
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Ofertas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Sección de productos -->
+    <section class="seccion-productos" aria-labelledby="titulo-productos">
+      <h2 id="titulo-productos">Productos</h2>
+      <p class="productos-intro">Lo más pedido en nuestro mostrador.</p>
+
+      <ul class="lista-productos">
+        <li>
+          <figure class="tarjeta-producto">
+            <div class="tarjeta-producto_imagen">
+              <img src="./assets/arroz.png" alt="Bolsa de arroz" width="320" height="320">
+            </div>
+            <figcaption class="tarjeta-producto_nombre">Arroz</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="tarjeta-producto">
+            <div class="tarjeta-producto_imagen">
+              <img src="./assets/leche.png" alt="Caja de leche" width="320" height="320">
+            </div>
+            <figcaption class="tarjeta-producto_nombre">Leche</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="tarjeta-producto">
+            <div class="tarjeta-producto_imagen">
+              <img src="./assets/pan.png" alt="Pan de sandwich" width="320" height="320">
+            </div>
+            <figcaption class="tarjeta-producto_nombre">Pan</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="tarjeta-producto">
+            <div class="tarjeta-producto_imagen">
+              <img src="./assets/huevos.png" alt="Huevos" width="320" height="320">
+            </div>
+            <figcaption class="tarjeta-producto_nombre">Huevos</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Sección de precios -->
+    <section>
+      <h2>Precios</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio ($)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Arroz</td>
+            <td>2.00</td>
+          </tr>
+          <tr>
+            <td>Leche</td>
+            <td>1.00</td>
+          </tr>
+          <tr>
+            <td>Pan</td>
+            <td>1.50</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+
+      <form id="formulario-contacto">
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="email" id="correo" placeholder="Correo">
+        <button type="submit">Enviar</button>
+      </form>
+
+      <!-- Aquí se mostrará el mensaje del formulario -->
+      <p id="mensaje"></p>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2026 Supermercado La Economía</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+## `styles.css`
+
+```css
+/* Estilos generales de la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  /* Encabezado */
+  header {
+    background-color: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Menú de navegación */
+  nav {
+    margin-top: 10px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Contenido principal */
+  main {
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+  /* Secciones */
+  section {
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Catálogo de productos */
+  .seccion-productos .productos-intro {
+    margin: 0 0 1.25rem;
+    color: #555;
+    font-size: 0.95rem;
+  }
+
+  .lista-productos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+    gap: 1rem;
+  }
+
+  .tarjeta-producto {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fafafa;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+
+  .tarjeta-producto_imagen {
+    aspect-ratio: 1;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+  }
+
+  .tarjeta-producto_imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 0.5rem;
+  }
+
+  .tarjeta-producto_imagen--placeholder {
+    background: linear-gradient(145deg, #e8f5e9 0%, #c8e6c9 100%);
+  }
+
+  .tarjeta-producto_inicial {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2e7d32;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .tarjeta-producto_nombre {
+    margin: 0;
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Tabla de precios */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th,
+  td {
+    border: 1px solid #999;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #e0e0e0;
+  }
+  
+  /* Formulario */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  input,
+  button {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  /* Botón */
+  button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #256428;
+  }
+  
+  /* Mensaje del formulario */
+  #mensaje {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  /* Pie de página */
+  footer {
+    text-align: center;
+    background-color: #ddd;
+    padding: 15px;
+    margin-top: 20px;
+  }
+```
+
+## `script.js`
+
+```javascript
+// Esperamos a que cargue todo el documento
+document.addEventListener("DOMContentLoaded", function () {
+    // Seleccionamos el formulario y los elementos necesarios
+    const formulario = document.getElementById("formulario-contacto");
+    const nombre = document.getElementById("nombre");
+    const correo = document.getElementById("correo");
+    const mensaje = document.getElementById("mensaje");
+  
+    // Agregamos funcionalidad al enviar el formulario
+    formulario.addEventListener("submit", function (event) {
+      event.preventDefault();
+  
+      // Quitamos espacios vacíos al inicio y final
+      const nombreValor = nombre.value.trim();
+      const correoValor = correo.value.trim();
+  
+      // Validación de campos obligatorios
+      if (nombreValor === "" || correoValor === "") {
+        mensaje.textContent = "Por favor, completa todos los campos.";
+        mensaje.style.color = "red";
+        return;
+      }
+  
+      // Mensaje de éxito
+      mensaje.textContent = "Formulario enviado correctamente. Gracias, " + nombreValor + ".";
+      mensaje.style.color = "green";
+  
+      // Limpiamos el formulario
+      formulario.reset();
+    });
+  });
+```

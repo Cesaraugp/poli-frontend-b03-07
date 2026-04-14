@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supermercado La Economía</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Encabezado principal -->
+  <header>
+    <h1>Supermercado La Economía</h1>
+
+    <!-- Menú de navegación -->
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Ofertas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Sección de productos -->
+    <section class="seccion-productos" aria-labelledby="titulo-productos">
+      <h2 id="titulo-productos">Productos</h2>
+      <p class="productos-intro">Lo más pedido en nuestro mostrador.</p>
+
+      <ul class="lista-productos">
+        <li>
+          <figure class="tarjeta-producto">
+            <div class="tarjeta-producto_imagen">
+              <img src="./assets/arroz.png" alt="Bolsa de arroz" width="320" height="320">
+            </div>
+            <figcaption class="tarjeta-producto_nombre">Arroz</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="tarjeta-producto">
+            <div class="tarjeta-producto_imagen">
+              <img src="./assets/leche.png" alt="Caja de leche" width="320" height="320">
+            </div>
+            <figcaption class="tarjeta-producto_nombre">Leche</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="tarjeta-producto">
+            <div class="tarjeta-producto_imagen">
+              <img src="./assets/pan.png" alt="Pan de sandwich" width="320" height="320">
+            </div>
+            <figcaption class="tarjeta-producto_nombre">Pan</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="tarjeta-producto">
+            <div class="tarjeta-producto_imagen">
+              <img src="./assets/huevos.png" alt="Huevos" width="320" height="320">
+            </div>
+            <figcaption class="tarjeta-producto_nombre">Huevos</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Sección de precios -->
+    <section>
+      <h2>Precios</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio ($)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Arroz</td>
+            <td>2.00</td>
+          </tr>
+          <tr>
+            <td>Leche</td>
+            <td>1.00</td>
+          </tr>
+          <tr>
+            <td>Pan</td>
+            <td>1.50</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+
+      <form id="formulario-contacto">
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="email" id="correo" placeholder="Correo">
+        <button type="submit">Enviar</button>
+      </form>
+
+      <!-- Aquí se mostrará el mensaje del formulario -->
+      <p id="mensaje"></p>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2026 Supermercado La Economía</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
