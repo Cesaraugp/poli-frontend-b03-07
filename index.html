@@ -10,14 +10,22 @@
 
   <!-- Encabezado principal -->
   <header>
-    <h1>Supermercado La Economía</h1>
-
-    <!-- Menú de navegación -->
-    <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Ofertas</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+    <div class="header-barra">
+      <div class="header-barra_titulo-nav">
+        <h1>Supermercado La Economía</h1>
+        <!-- Menú de navegación -->
+        <nav>
+          <a href="#">Inicio</a>
+          <a href="#">Ofertas</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </div>
+      <!-- Botón del carrito: abre el panel y muestra el total de unidades -->
+      <button type="button" class="btn-carrito-cabecera" id="btn-abrir-carrito" aria-expanded="false" aria-controls="carrito-panel">
+        Carrito
+        <span class="btn-carrito-cabecera_badge" id="carrito-contador" aria-live="polite">0</span>
+      </button>
+    </div>
   </header>
 
   <main>
@@ -33,6 +41,7 @@
               <img src="./assets/arroz.png" alt="Bolsa de arroz" width="320" height="320">
             </div>
             <figcaption class="tarjeta-producto_nombre">Arroz</figcaption>
+            <button type="button" class="btn-agregar-carrito" data-producto-id="arroz" data-nombre="Arroz" data-precio="2">Agregar al carrito</button>
           </figure>
         </li>
         <li>
@@ -41,6 +50,7 @@
               <img src="./assets/leche.png" alt="Caja de leche" width="320" height="320">
             </div>
             <figcaption class="tarjeta-producto_nombre">Leche</figcaption>
+            <button type="button" class="btn-agregar-carrito" data-producto-id="leche" data-nombre="Leche" data-precio="1">Agregar al carrito</button>
           </figure>
         </li>
         <li>
@@ -49,6 +59,7 @@
               <img src="./assets/pan.png" alt="Pan de sandwich" width="320" height="320">
             </div>
             <figcaption class="tarjeta-producto_nombre">Pan</figcaption>
+            <button type="button" class="btn-agregar-carrito" data-producto-id="pan" data-nombre="Pan" data-precio="1.5">Agregar al carrito</button>
           </figure>
         </li>
         <li>
@@ -57,6 +68,7 @@
               <img src="./assets/huevos.png" alt="Huevos" width="320" height="320">
             </div>
             <figcaption class="tarjeta-producto_nombre">Huevos</figcaption>
+            <button type="button" class="btn-agregar-carrito" data-producto-id="huevos" data-nombre="Huevos" data-precio="2.5">Agregar al carrito</button>
           </figure>
         </li>
       </ul>
@@ -85,6 +97,10 @@
             <td>Pan</td>
             <td>1.50</td>
           </tr>
+          <tr>
+            <td>Huevos</td>
+            <td>2.50</td>
+          </tr>
         </tbody>
       </table>
     </section>
@@ -104,11 +120,28 @@
     </section>
   </main>
 
+  <!-- Capa semitransparente: cierra el carrito al hacer clic fuera del panel -->
+  <div class="carrito-overlay" id="carrito-overlay" aria-hidden="true"></div>
+  <!-- Panel lateral del carrito (lista, totales y acciones); la visibilidad la controla jQuery + CSS -->
+  <aside class="carrito-panel" id="carrito-panel" aria-label="Carrito de compras" aria-hidden="true">
+    <div class="carrito-panel_cabecera">
+      <h2 class="carrito-panel_titulo">Tu carrito</h2>
+      <button type="button" class="btn-cerrar-carrito" id="btn-cerrar-carrito" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <p class="carrito-vacio" id="carrito-mensaje-vacio">No hay productos aún. Agrega algunos desde el catálogo.</p>
+    <ul class="carrito-lineas" id="carrito-lineas"></ul>
+    <div class="carrito-panel_pie">
+      <p class="carrito-total"><strong>Total:</strong> $<span id="carrito-total-monto">0.00</span></p>
+      <button type="button" class="btn-vaciar-carrito" id="btn-vaciar-carrito">Vaciar carrito</button>
+    </div>
+  </aside>
+
   <!-- Pie de página -->
   <footer>
     <p>&copy; 2026 Supermercado La Economía</p>
   </footer>
 
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="script.js"></script>
 </body>
 </html>

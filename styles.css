@@ -11,8 +11,72 @@ body {
   header {
     background-color: #2e7d32;
     color: white;
-    text-align: center;
     padding: 20px;
+  }
+
+  .header-barra {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .header-barra_titulo-nav {
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .header-barra_titulo-nav h1 {
+    margin: 0 0 10px;
+  }
+
+  /* Botón flotante del carrito en la cabecera */
+  .btn-carrito-cabecera {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+  }
+
+  .btn-carrito-cabecera:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+  }
+
+  .btn-carrito-cabecera_badge {
+    background: #fff;
+    color: #2e7d32;
+    border-radius: 999px;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    padding: 0 0.35rem;
+  }
+
+  .btn-carrito-cabecera_badge--pulso {
+    animation: pulso-badge 0.45s ease;
+  }
+
+  @keyframes pulso-badge {
+    0% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
   
   /* Menú de navegación */
@@ -111,6 +175,165 @@ body {
     font-size: 0.95rem;
     font-weight: bold;
     color: #333;
+  }
+
+  .btn-agregar-carrito {
+    margin: 0 0.5rem 0.75rem;
+    padding: 0.5rem 0.65rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+  }
+
+  .btn-agregar-carrito--feedback {
+    background-color: #1b5e20 !important;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);
+  }
+
+  /* Fondo al abrir el carrito */
+  .carrito-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 1000;
+  }
+
+  .carrito-overlay--visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Panel deslizable desde la derecha */
+  .carrito-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(22rem, 92vw);
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.28s ease;
+  }
+
+  .carrito-panel--visible {
+    transform: translateX(0);
+  }
+
+  .carrito-panel_cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 0.5rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .carrito-panel_titulo {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+
+  .btn-cerrar-carrito {
+    background: transparent;
+    color: #333;
+    font-size: 1.75rem;
+    line-height: 1;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+  }
+
+  .btn-cerrar-carrito:hover {
+    background: #eee;
+  }
+
+  .carrito-vacio {
+    padding: 1rem 1.25rem;
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  .carrito-vacio--oculto {
+    display: none;
+  }
+
+  .carrito-lineas {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  .carrito-linea {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.35rem 0.75rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+  }
+
+  .carrito-linea_nombre {
+    font-weight: bold;
+  }
+
+  .carrito-linea_precio {
+    color: #555;
+    font-size: 0.85rem;
+    grid-column: 1 / -1;
+  }
+
+  .carrito-linea_acciones {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .carrito-linea_acciones button {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.8rem;
+    min-width: 2rem;
+  }
+
+  .btn-quitar-linea {
+    background: #c62828;
+    margin-left: auto;
+  }
+
+  .btn-quitar-linea:hover {
+    background: #b71c1c;
+  }
+
+  .carrito-panel_pie {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    background: #fafafa;
+  }
+
+  .carrito-total {
+    margin: 0 0 0.75rem;
+    font-size: 1.05rem;
+  }
+
+  .btn-vaciar-carrito {
+    width: 100%;
+    background: #6d4c41;
+  }
+
+  .btn-vaciar-carrito:hover {
+    background: #5d4037;
+  }
+
+  body.carrito-abierto {
+    overflow: hidden;
   }
   
   /* Tabla de precios */
